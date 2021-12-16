@@ -1,13 +1,29 @@
 import React from "react";
+import Clock from "./clock";
+import Number from "./number";
+import PropTypes from "prop-types";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
-const Home = (props) => {
+const Home = props => {
 	return (
-		<h1>{props.contador}</h1>
+		<div className="row container-fluid d-flex justify-content-center rounded">
+			<Clock />
+			<Number number={props.hora2} />
+			<Number number={props.hora1} />
+			<Number number={props.minuto2} />
+			<Number number={props.minuto1} />
+			<Number number={props.segundo2} />
+			<Number number={props.segundo1} />
+		</div>
 	);
+};
+
+Home.propTypes = {
+	segundo1: PropTypes.number,
+	segundo2: PropTypes.number,
+	minuto1: PropTypes.number,
+	minuto2: PropTypes.number,
+	hora1: PropTypes.number,
+	hora2: PropTypes.number
 };
 
 export default Home;
